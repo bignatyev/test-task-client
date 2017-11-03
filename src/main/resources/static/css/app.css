@@ -1,0 +1,64 @@
+/* MODALS: */
+.modal{
+    display: none;
+    box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.75);
+}
+.modal-switch {
+    display: none;
+}
+.modal-bg {
+    display: none;
+}
+.modal-switch:checked ~ .modal {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: auto;
+    margin-top: 7%;
+    z-index: 999;
+}
+.modal-switch:checked ~ .modal-bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.4;
+    z-index: 998;
+}
+
+/* USER FORMS: */
+.user-form {
+    padding: 15px;
+    background: white;
+    font-size: 16px;
+}
+.inputs-container {
+    padding: 15px;
+}
+.inputs-container label {
+    display: block;
+}
+.inputs-container input {
+    padding: 0.2em 0.2em 0.2em 0.4em;
+    margin-top: 5px;
+    width: 268px;
+}
+
+
+.clients-table {
+    margin: 15% auto;
+    border-collapse: collapse;
+}
+.clients-table tbody tr {
+    border-bottom: 1px solid lightgray;
+}
+.clients-table tbody:first-child {
+    border-bottom: 1px solid black;
+}
+.clients-table tbody:last-child {
+    border-bottom: none;
+}

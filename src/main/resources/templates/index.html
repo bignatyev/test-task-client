@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Clients Journal</title>
+    <link rel="stylesheet" href="/css/app.css"/>
+
+</head>
+<body>
+
+<table class="clients-table">
+
+    <tr>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.firstName}">The</td>
+        <td th:text="${client.lastName}">Satan</td>
+        <td th:text="${client.email}">submitthesatan666@gmail.com</td>
+        <td th:text="${client.phone}">+380664110119</td>
+        <td>
+            <input class="modal-switch" type="checkbox" th:id="'modal-update-' + ${client.id}"/>
+            <label th:for="'modal-update-' + ${client.id}">Open</label>
+
+            <label class="modal-bg" th:for="'modal-update-' + ${client.id}"></label>
+            <div class="modal">
+                <form class="user-form" method="post" action="/update">
+
+                    <input type="hidden" name="id" th:value="${client.id}"/>
+
+                    <div class="inputs-container">
+
+                        <div>
+                            <label th:for="'input-update-' + ${client.id} + '-first-name'">first name</label>
+                            <input
+                                    th:id="'input-update-' + ${client.id} + '-first-name'"
+                                    th:value="${client.firstName}"
+                                    name="firstName"
+                            />
+                        </div>
+
+                        <div>
+                            <label th:for="'input-update-' + ${client.id} + '-last-name'">last name</label>
+                            <input
+                                    th:id="'input-update-' + ${client.id} + '-last-name'"
+                                    th:value="${client.lastName}"
+                                    name="lastName"
+                            />
+                        </div>
+
+                        <div>
+                            <label th:for="'input-update-' + ${client.id} + '-email'">email</label>
+                            <input
+                                    th:id="'input-update-' + ${client.id} + '-email'"
+                                    th:value="${client.email}"
+                                    name="email"
+                            />
+                        </div>
+
+                        <div>
+                            <label th:for="'input-update-' + ${client.id} + '-phone'">phone</label>
+                            <input
+                                    th:id="'input-update-' + ${client.id} + '-phone'"
+                                    th:value="${client.phone}"
+                                    name="phone"
+                            />
+                        </div>
+
+                    </div>
+
+                    <button type="submit" title="The Satan">Submit</button>
+
+                </form>
+            </div>
+        </td>
+        <td>
+            <form method="post" action="/delete">
+
+                <input type="hidden" name="id" th:value="${client.id}"/>
+                <button type="submit">Удолить</button>
+
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+
+<input class="modal-switch" type="checkbox" id="modal-create"/>
+<label for="modal-create">Open</label>
+
+<label for="modal-create" class="modal-bg"></label>
+<div class="modal">
+    <form class="user-form" method="post" action="/create">
+
+        <div class="inputs-container">
+
+            <div>
+                <label for="input-create-first-name">first name</label>
+                <input id="input-create-first-name" name="firstName"/>
+            </div>
+
+            <div>
+                <label for="input-create-last-name">last name</label>
+                <input id="input-create-last-name" name="lastName"/>
+            </div>
+
+            <div>
+                <label for="input-create-email">email</label>
+                <input id="input-create-email" name="email"/>
+            </div>
+
+            <div>
+                <label for="input-create-phone">phone</label>
+                <input id="input-create-phone" name="phone"/>
+            </div>
+
+        </div>
+
+        <button type="submit" title="The Satan">Submit</button>
+
+    </form>
+</div>
+</body>
+</html>
